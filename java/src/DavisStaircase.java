@@ -6,9 +6,9 @@ import java.util.Map;
  */
 public class DavisStaircase {
 
-    Map<Integer, Integer> cacheMap = new HashMap<>();
+    private static Map<Integer, Integer> cacheMap = new HashMap<>();
 
-    public int climb(int staircase) {
+    public static int climb(int staircase) {
 
         if(cacheMap.containsKey(staircase))
             return cacheMap.get(staircase);

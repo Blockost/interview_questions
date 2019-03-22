@@ -1,3 +1,5 @@
+package dataStructures;
+
 /**
  * Created by blockost on 20/03/17.
  */
