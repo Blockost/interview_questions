@@ -3,6 +3,8 @@ package dataStructures;
 public class DataStructures {
 
     public static void test() {
+        System.out.println("*** Testing data structures problems ***");
+
         TreeNode n7 = new TreeNode(1);
         TreeNode n8 = new TreeNode(3);
         TreeNode n1 = new TreeNode(2, null, n8);

@@ -1,5 +1,6 @@
+package algorithms;
+
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 /**
  * Created by blockost on 20/03/17.
@@ -18,9 +19,7 @@ public class MakingAnagrams {
             count[c - 'a']--;
         }
 
-        return Arrays.stream(count)
-            .map(n -> Math.abs(n))
-            .sum();
+        return Arrays.stream(count).map(Math::abs).sum();
     }
 
     private static String deleteCharAt(String s, int index) {

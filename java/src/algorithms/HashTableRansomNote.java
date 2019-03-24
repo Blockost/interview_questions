@@ -1,3 +1,5 @@
+package algorithms;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,8 +12,8 @@ public class HashTableRansomNote {
     private String note;
 
     public HashTableRansomNote(String magazine, String note) {
-        for(String s : magazine.split(" ")){
-            if(magazineMap.containsKey(s)){
+        for (String s : magazine.split(" ")) {
+            if (magazineMap.containsKey(s)) {
                 magazineMap.put(s, magazineMap.get(s) + 1);
             } else {
                 magazineMap.put(s, 1);
@@ -21,9 +23,9 @@ public class HashTableRansomNote {
         this.note = note;
     }
 
-    public boolean solve(){
-        for(String s : note.split(" ")){
-            if(!magazineMap.containsKey(s) || magazineMap.get(s) <= 0)
+    public boolean solve() {
+        for (String s : note.split(" ")) {
+            if (!magazineMap.containsKey(s) || magazineMap.get(s) <= 0)
                 return false;
             magazineMap.put(s, magazineMap.get(s) - 1);
         }

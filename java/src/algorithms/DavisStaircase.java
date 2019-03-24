@@ -1,3 +1,5 @@
+package algorithms;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +12,7 @@ public class DavisStaircase {
 
     public static int climb(int staircase) {
 
-        if(cacheMap.containsKey(staircase))
+        if (cacheMap.containsKey(staircase))
             return cacheMap.get(staircase);
 
         if (staircase < 0) return 0;
@@ -19,8 +21,8 @@ public class DavisStaircase {
         if (staircase == 3) return 4;
 
         int cache = climb(staircase - 1)
-            + climb(staircase - 2)
-            + climb(staircase - 3);
+                + climb(staircase - 2)
+                + climb(staircase - 3);
 
         cacheMap.put(staircase, cache);
         return cache;
