@@ -41,5 +41,15 @@ public class DataStructures {
         stack.pop();
         stack.pop();
         System.out.println(stack);
+
+        // HashMap
+        System.out.println("Testing HashMap implementation");
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("Foo", 1);
+        hashMap.put("Bar", 2);
+        hashMap.put("Foo", 3);
+        hashMap.remove("Foo");
+        hashMap.put("Foo", 1000);
+        System.out.println(hashMap.get("Foo"));
     }
 }
