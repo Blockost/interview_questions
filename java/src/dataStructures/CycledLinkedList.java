@@ -8,23 +8,23 @@ import java.util.List;
  */
 public class CycledLinkedList {
 
-    public static boolean hasCycle(LinkedList head){
-        List<Integer> arr = new ArrayList<>();
-
-        if(head == null || head.next == null)
+    public static boolean hasCycle(LinkedList head) {
+        if (head == null || !head.hasNext()) {
             return false;
+        }
 
-        return check(head.next, arr);
+        return check(head, new ArrayList<>());
     }
 
-    private static boolean check(LinkedList head, List arr){
-        if(head == null) return false;
-
+    private static boolean check(LinkedList head, List<Integer> list) {
         int hashCode = head.hashCode();
-        if(arr.contains(hashCode))
-            return true;
 
-        arr.add(hashCode);
-        return check(head.next, arr);
+        if (list.contains(hashCode) || !head.hasNext()) {
+            return false;
+        }
+
+        list.add(hashCode);
+        return check(head.getNext(), list);
     }
+
 }

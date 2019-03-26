@@ -7,7 +7,7 @@ public class DataStructures {
 
         TreeNode n7 = new TreeNode(1);
         TreeNode n8 = new TreeNode(3);
-        TreeNode n1 = new TreeNode(2, null, n8);
+        TreeNode n1 = new TreeNode(2, n7, n8);
 
         TreeNode n3 = new TreeNode(5);
         TreeNode n4 = new TreeNode(7);
@@ -19,15 +19,17 @@ public class DataStructures {
         boolean bool = BinarySearchTree.checkBST(root);
         System.out.println(bool);
 
-        LinkedList linkedList = new LinkedList(1);
+        // LinkedList
+        System.out.println("Testing LinkedList implementation");
+        LinkedList<Integer> linkedList = new LinkedList<>(1);
         linkedList.add(2).add(3).add(4);
         System.out.println(linkedList);
-        System.out.println(linkedList.length());
+        System.out.println(String.format("LinkedList length: %s", linkedList.length()));
 
         // Create a cycle by redirecting the last node to the 3rd one
         // This will break every other operations: StackOverflow exception
-        LinkedList node3 = linkedList.getNodeAt(3);
-        linkedList.redirectTail(node3);
+        LinkedList<Integer> tail = linkedList.getTail();
+        linkedList.redirectTail(tail);
         System.out.println(CycledLinkedList.hasCycle(linkedList));
 
         // Stack
