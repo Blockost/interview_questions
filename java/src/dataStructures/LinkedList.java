@@ -30,12 +30,44 @@ public class LinkedList<T> {
         return this.next;
     }
 
-    public LinkedList<T> add(T data) {
-        if (this.hasNext()) {
-            return this.next.add(data);
+    /**
+     * Prepends the given to the head of the current list.
+     *
+     * @return A new {@link LinkedList} with the existing list as next
+     */
+    public LinkedList<T> prepend(T data) {
+        LinkedList<T> newList = new LinkedList<>(data);
+        newList.next = this;
+        return newList;
+    }
+
+    public LinkedList<T> append(T data) {
+        this.getTail().next = new LinkedList<>(data);
+        return this;
+    }
+
+    public LinkedList<T> insert(T data, int index) {
+        if (index == 0) {
+            return this.prepend(data);
         }
 
-        this.next = new LinkedList<>(data);
+        LinkedList<T> beforeNode = this.getNodeAt(index - 1);
+        LinkedList<T> afterNode = beforeNode.next;
+        beforeNode.next = new LinkedList<>(data);
+        beforeNode.next.next = afterNode;
+
+        return this;
+    }
+
+    public LinkedList<T> remove(int index) {
+        if (index == 0) {
+            this.data = this.next.data;
+            this.next = this.next.next;
+            return this;
+        }
+
+        LinkedList<T> beforeNode = getNodeAt(index - 1);
+        beforeNode.next = beforeNode.next.next;
         return this;
     }
 
@@ -57,8 +89,7 @@ public class LinkedList<T> {
 
     public LinkedList<T> getNodeAt(int index) {
         if (this.length() <= index) {
-            System.err.println(String.format("LinkedList index ouf of bound. Index: %s, size: %s", index, this.length()));
-            return null;
+            throw new IndexOutOfBoundsException(String.format("LinkedList index ouf of bound. Index: %s, size: %s", index, this.length()));
         }
 
         if (index == 0) {

@@ -22,7 +22,7 @@ public class DataStructures {
         // LinkedList
         System.out.println("Testing LinkedList implementation");
         LinkedList<Integer> linkedList = new LinkedList<>(1);
-        linkedList.add(2).add(3).add(4);
+        linkedList = linkedList.append(5).prepend(0).insert(2, 2).append(3).remove(3);
         System.out.println(linkedList);
         System.out.println(String.format("LinkedList length: %s", linkedList.length()));
 
