@@ -1,9 +1,13 @@
 package algorithms;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Algorithms {
 
     public static void test() {
         System.out.println("*** Testing algorithms problems ***");
+        List<Algorithm> algorithms = Arrays.asList(new MergeLists());
 
         String s1 = "cde";
         String s2 = "abc";
@@ -18,5 +22,7 @@ public class Algorithms {
 
         int i = DavisStaircase.climb(7);
         System.out.println(i);
+
+        algorithms.forEach(Algorithm::execute);
     }
 }
