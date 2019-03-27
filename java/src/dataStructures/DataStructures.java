@@ -38,11 +38,11 @@ public class DataStructures {
         stack.push(1);
         stack.push(2);
         stack.push(3);
-        System.out.println(stack);
+        System.out.println(String.format("Stack is: %s", stack));
         stack.peek();
         stack.pop();
         stack.pop();
-        System.out.println(stack);
+        System.out.println(String.format("Stack is: %s", stack));
 
         // HashMap
         System.out.println("Testing HashMap implementation");
@@ -52,6 +52,15 @@ public class DataStructures {
         hashMap.put("Foo", 3);
         hashMap.remove("Foo");
         hashMap.put("Foo", 1000);
-        System.out.println(hashMap.get("Foo"));
+        System.out.println(String.format("HashMap is: %s", hashMap));
+
+        // HashSet
+        System.out.println("Testing HashSet implementation");
+        HashSet<Integer> hashSet = new HashSet<>();
+        hashSet.add(1);
+        hashSet.add(2);
+        hashSet.add(3);
+        hashSet.remove(3);
+        System.out.println(hashSet);
     }
 }

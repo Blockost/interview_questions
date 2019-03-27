@@ -4,6 +4,7 @@ import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class HashMap<K, V> {
     private ArrayList<HashNode<K, V>> map;
@@ -39,6 +40,17 @@ public class HashMap<K, V> {
         HashNode<K, V> bucket = this.getBucketForKey(key);
         bucket.remove(key);
         System.out.println(String.format("Load factor is %s now", this.getLoadFactor()));
+    }
+
+    public int size() {
+        return this.map.size();
+    }
+
+    @Override
+    public String toString() {
+        return this.map.stream()
+                .filter(hashNode -> !hashNode.isEmpty())
+                .map(HashNode::toString).collect(Collectors.joining(","));
     }
 
     private HashNode<K, V> getBucketForKey(K key) {
@@ -88,6 +100,11 @@ public class HashMap<K, V> {
 
         public boolean isEmpty() {
             return this.nodes.isEmpty();
+        }
+
+        @Override
+        public String toString() {
+            return this.nodes.stream().map(Pair::toString).collect(Collectors.joining(","));
         }
     }
 }
