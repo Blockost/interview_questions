@@ -14,19 +14,44 @@ public abstract class BinarySearchTree {
         this.root = root;
     }
 
+    /**
+     * Finds the node corresponding to the given value.
+     *
+     * <p>It leverages the property of a {@link BinarySearchTree} in order to have logarithmic time complexity.
+     */
+    public TreeNode find(int value) {
+        return this.doFind(root, value);
+    }
+
     public boolean checkBST() {
         return check(this.root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private TreeNode doFind(TreeNode root, int value) {
+        if (root == null) {
+            return null;
+        }
+
+        if (root.value == value) {
+            return root;
+        }
+
+        if (value <= root.value) {
+            return this.doFind(root.left, value);
+        }
+
+        return this.doFind(root.right, value);
     }
 
     private static boolean check(TreeNode n, int min, int max) {
 
         if (n == null) return true;
 
-        if (n.data <= min || n.data >= max)
+        if (n.value <= min || n.value >= max)
             return false;
 
         // Recursive call on left and right subtrees
-        return check(n.left, min, n.data)
-                && check(n.right, n.data, max);
+        return check(n.left, min, n.value)
+                && check(n.right, n.value, max);
     }
 }

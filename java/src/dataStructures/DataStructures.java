@@ -21,6 +21,7 @@ public class DataStructures {
         TreeNode root = new TreeNode(4, n1, n2);
 
         System.out.println(root);
+        System.out.println(String.format("Tree height: %s", root.getHeight()));
         AVLTree avlTree = new AVLTree(root);
         RedBlackTree redBlackTree = new RedBlackTree(root);
         System.out.println(String.format("Is BST: %s", avlTree.checkBST()));
