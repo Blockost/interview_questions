@@ -1,10 +1,15 @@
 package dataStructures;
 
+import dataStructures.tree.AVLTree;
+import dataStructures.tree.RedBlackTree;
+import dataStructures.tree.TreeNode;
+
 public class DataStructures {
 
     public static void test() {
         System.out.println("*** Testing data structures problems ***");
 
+        System.out.println("Testing Tree implementation");
         TreeNode n7 = new TreeNode(1);
         TreeNode n8 = new TreeNode(3);
         TreeNode n1 = new TreeNode(2, n7, n8);
@@ -16,8 +21,10 @@ public class DataStructures {
         TreeNode root = new TreeNode(4, n1, n2);
 
         System.out.println(root);
-        boolean bool = BinarySearchTree.checkBST(root);
-        System.out.println(bool);
+        AVLTree avlTree = new AVLTree(root);
+        RedBlackTree redBlackTree = new RedBlackTree(root);
+        System.out.println(String.format("Is BST: %s", avlTree.checkBST()));
+        System.out.println(String.format("Is BST: %s", redBlackTree.checkBST()));
 
         // LinkedList
         System.out.println("Testing LinkedList implementation");

@@ -1,4 +1,4 @@
-package dataStructures;
+package dataStructures.tree;
 
 /**
  * Created by blockost on 20/03/17.
@@ -29,14 +29,14 @@ public class TreeNode {
         StringBuilder s = new StringBuilder();
 
         if (isLeaf()) {
-            s.append("(" + data + ")");
+            s.append("(").append(data).append(")");
         } else {
-            s.append("(" + data + ") --> ");
+            s.append("(").append(data).append(") --> ");
             if (left != null)
-                s.append("left[" + left.toString() + "] - ");
+                s.append("left[").append(left.toString()).append("] - ");
 
             if (right != null)
-                s.append("right[" + right.toString() + "]");
+                s.append("right[").append(right.toString()).append("]");
 
         }
         return s.toString();
