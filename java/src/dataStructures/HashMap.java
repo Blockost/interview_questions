@@ -1,7 +1,5 @@
 package dataStructures;
 
-import javafx.util.Pair;
-
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.stream.Collectors;
