@@ -7,7 +7,13 @@ public class Algorithms {
 
     public static void test() {
         System.out.println("*** Testing algorithms problems ***");
-        List<Algorithm> algorithms = Arrays.asList(new MergeLists(), new Fibonacci(), new Union(), new Playlist());
+        List<Algorithm> algorithms = Arrays.asList(
+                new MergeLists(),
+                new Fibonacci(),
+                new Union(),
+                new Playlist(),
+                new Palindrome(),
+                new CheckDigit());
 
         String s1 = "cde";
         String s2 = "abc";
